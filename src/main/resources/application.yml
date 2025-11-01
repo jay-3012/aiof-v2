@@ -47,9 +47,9 @@ springdoc:
 # Application-specific properties
 app:
   jwt:
-    secret: ${JWT_SECRET:your-256-bit-secret-key-change-this-in-production-minimum-32-characters}
-    access-token-expiration: 604800000  # 7 days in milliseconds
-    refresh-token-expiration: 2592000000  # 30 days in milliseconds
+    secret: ${JWT_SECRET:c2VjdXJlLWp3dC1zZWNyZXQta2V5LWZvci1haW9mLWZpdG5lc3MtYXBwLW1pbmltdW0tMzItY2hhcmFjdGVycw==}
+    access-token-expiration: 604800000  # 7 days
+    refresh-token-expiration: 2592000000  # 30 days
 
   upload:
     dir: ${UPLOAD_DIR:uploads/}
