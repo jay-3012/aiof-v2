@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.NOT_FOUND)
                 .body(ApiResponse.error("Resource Not Found", ex.getMessage()));
     }
-
+//
     // Handle Unauthorized (401)
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<ApiResponse<Void>> handleUnauthorized(
