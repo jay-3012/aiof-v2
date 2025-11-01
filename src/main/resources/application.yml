@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: aiof-fitness
+
+  profiles:
+    active: dev
+
+  # JPA/Hibernate
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update  # Use 'validate' in production
+
+  # File Upload
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+  # Jackson JSON
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
+
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Springdoc OpenAPI (Swagger)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+# Application-specific properties
+app:
+  jwt:
+    secret: ${JWT_SECRET:your-256-bit-secret-key-change-this-in-production-minimum-32-characters}
+    access-token-expiration: 604800000  # 7 days in milliseconds
+    refresh-token-expiration: 2592000000  # 30 days in milliseconds
+
+  upload:
+    dir: ${UPLOAD_DIR:uploads/}
+
+  wger:
+    api:
+      base-url: https://wger.de/api/v2
+      language: 2  # English
+
+# Logging
+logging:
+  level:
+    com.aiof.fitness: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

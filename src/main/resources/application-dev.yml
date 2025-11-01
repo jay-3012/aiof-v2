@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aiof_fitness_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# CORS Configuration for local Flutter development
+cors:
+  allowed-origins:
+    - http://localhost:3000
+    - http://localhost:8080
+    - http://127.0.0.1:3000
+
+logging:
+  level:
+    com.aiof.fitness: DEBUG
+    org.springframework.security: DEBUG

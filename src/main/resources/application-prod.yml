@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Never auto-create in production
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+# CORS Configuration - Update with your Flutter app domain
+cors:
+  allowed-origins:
+    - https://your-flutter-app.com
+    - https://app.aiof-fitness.com
+
+logging:
+  level:
+    com.aiof.fitness: INFO
+    org.springframework: WARN
+  file:
+    name: logs/aiof-fitness.log
