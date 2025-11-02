@@ -47,7 +47,8 @@ public class SecurityConfig {
                                 "/swagger-ui/**",         // Swagger UI
                                 "/v3/api-docs/**",        // OpenAPI docs
                                 "/swagger-resources/**",  // Swagger resources
-                                "/actuator/health"        // Health check
+                                "/actuator/health",       // Health check
+                                "/uploads/**"             // Uploaded images
                         ).permitAll()
 
                         // All other endpoints require authentication

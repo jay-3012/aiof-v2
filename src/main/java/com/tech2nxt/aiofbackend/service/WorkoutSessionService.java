@@ -10,6 +10,7 @@ import com.tech2nxt.aiofbackend.exception.ResourceNotFoundException;
 import com.tech2nxt.aiofbackend.model.ExerciseLog;
 import com.tech2nxt.aiofbackend.model.Workout;
 import com.tech2nxt.aiofbackend.model.WorkoutSession;
+import com.tech2nxt.aiofbackend.repository.JournalEntryRepository;
 import com.tech2nxt.aiofbackend.repository.WorkoutRepository;
 import com.tech2nxt.aiofbackend.repository.WorkoutSessionRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,7 @@ public class WorkoutSessionService {
 
     private final WorkoutSessionRepository sessionRepository;
     private final WorkoutRepository workoutRepository;
+    private final JournalEntryRepository journalRepository;
 
     /**
      * Start a new workout session
